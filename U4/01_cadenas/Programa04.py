@@ -1,0 +1,7 @@
+cadena_entero = str(44)
+cadena_decimal = str(2.5)
+cadena_booleano = str(True)
+print("Cadena de entero:", cadena_entero)
+print("Cadena de decimal:", cadena_decimal)
+print("Cadena de booleano:", cadena_booleano)
+print(r"Esta es una cadena cruda con caracteres especiales: \n \t \\")

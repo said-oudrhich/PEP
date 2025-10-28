@@ -1,0 +1,8 @@
+#!/DatosM/m/Nextcloud/PEP/U3/entorno02/.venv/bin/python3
+# -*- coding: utf-8 -*-
+import re
+import sys
+from textual_slidecontainer.demo import run_demo
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(run_demo())
