@@ -4,23 +4,25 @@ try:
     with open("ciudades.csv", "r", encoding="utf-8") as archivo:
         campos = ["Ciudad", "País", "Población (millones)"]
 
-        # Leemos la primera línea del archivo
         primera_linea = archivo.readline().strip()
 
-        # Detectamos si contiene cabecera REAL
+        # Reiniciamos la lectura SIEMPRE (esta es la clave)
+        archivo.seek(0)
+
+        # Detectamos si la cabecera coincide con los campos esperados
         if primera_linea.split(",") == campos:
             # Tiene cabecera → DictReader normal
             lector = DictReader(archivo)
             print("Nombres de las columnas:", lector.fieldnames)
         else:
-            # No tiene cabecera → usamos la primera línea como datos
-            archivo.seek(0)  # Volvemos al inicio
+            # No tiene cabecera
             lector = DictReader(archivo, fieldnames=campos)
             print("Nombres de las columnas (asignadas manualmente):", campos)
 
         for fila in lector:
             print(
-                f"{fila['Ciudad']} ({fila['País']}) tiene una población aproximada de {fila['Población (millones)']} millones."
+                f"{fila['Ciudad']} ({fila['País']}) tiene una población aproximada de "
+                f"{fila['Población (millones)']} millones."
             )
 
 except FileNotFoundError:
