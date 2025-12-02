@@ -6,15 +6,12 @@ try:
 
     continente = input("Introduce un continente: ").strip()
 
-    # Creamos una lista vacía para los países filtrados
     filtrados = []
 
-    # Recorremos todos los países y agregamos los que coincidan con el continente
     for pais in paises:
         if pais["continente"].lower() == continente.lower():
             filtrados.append(pais)
 
-    # Mostramos los resultados
     if filtrados:
         print("\nPaíses encontrados:")
         for p in filtrados:
